@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    links:
+      - mongodb
+    ports:
+      - "8080:8080"
+  
+  mongodb:
+    image: mongodb:latest
+    ports:
+      - "2345:2345"
+    environment:
+      - MONGO_DB_USER_NAME="user"
+      - MONGO_DB_PASSWORD="password"
+      - MONGO_DB_DATABASE = "email"
+
+    

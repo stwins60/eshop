@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eshop-deployment
+spec:
+  selector:
+    matchLabels:
+      app: eshop-deployment
+  template:
+    metadata:
+      labels:
+        app: eshop-deployment
+    spec:
+      containers:
+      - name: eshop
+        image: 760924931916.dkr.ecr.us-east-2.amazonaws.com/eshop-repository:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
