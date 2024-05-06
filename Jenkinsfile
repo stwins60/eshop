@@ -47,7 +47,7 @@ pipeline {
         stage ('OWASP Dependency Check') {
             steps {
                 script {
-                    sh 'docker run --rm -v $PWD:/app -w /app owasp/dependency-check --scan . --format "ALL"'
+                    sh 'docker run --rm -v $PWD:/app -w /app owasp/dependency-check --scan . --format "ALL" -e nvdApikey=4bdf4acc-8eae-45c1-bfc4-844d549be812'
                 }
             }
         }
