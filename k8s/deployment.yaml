@@ -14,8 +14,7 @@ spec:
     spec:
       containers:
       - name: eshop
-#         image: 760924931916.dkr.ecr.us-east-2.amazonaws.com/eshop-repository:latest
-          image: IMAGE_NAME
+        image: IMAGE_NAME
         resources:
           limits:
             memory: "128Mi"
