@@ -99,11 +99,11 @@ pipeline {
                 script {
                     dir('./k8s') {
                         kubeconfig(credentialsId: '500a0599-809f-4de0-a060-0fdbb6583332', serverUrl: '') {
-                            sh "sed -i 's|NAMESPACE|${NAMESPACE}|g' deployment.yaml"
-                            sh "sed -i 's|NAMESPACE|${NAMESPACE}|g' service.yaml"
+                            sh "sed -i 's|NAMESPACE|${env.NAMESPACE}|g' deployment.yaml"
+                            sh "sed -i 's|NAMESPACE|${env.NAMESPACE}|g' service.yaml"
 
-                            sh "sed -i 's|IMAGE_NAME|${IMAGE_NAME}|g' deployment.yaml"
-                            sh "sed -i 's|DEPLOYMENT_NAME|${DEPLOYMENT_NAME}|g' deployment.yaml"
+                            sh "sed -i 's|IMAGE_NAME|${env.IMAGE_NAME}|g' deployment.yaml"
+                            sh "sed -i 's|DEPLOYMENT_NAME|${env.DEPLOYMENT_NAME}|g' deployment.yaml"
 
                             sh "kubectl apply -f deployment.yaml"
                             sh "kubectl apply -f service.yaml"
