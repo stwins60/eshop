@@ -47,7 +47,7 @@ pipeline {
         stage ('OWASP Dependency Check') {
             steps {
                 script {
-                    sh 'docker run --rm -v $PWD:/app -w /app owasp/dependency-check --scan . --format "ALL" --out /app/reports'
+                    sh 'docker run --rm -v $PWD:/app -w /app owasp/dependency-check --scan . --format "ALL"'
                 }
             }
         }
